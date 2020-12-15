@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b127d53b0f714aaaad13b7064369bc92 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_b127d53b0f714aaaad13b7064369bc92" ></div>
+        
+</body>
+<script>    
+    
+            var map_b127d53b0f714aaaad13b7064369bc92 = L.map(
+                "map_b127d53b0f714aaaad13b7064369bc92",
+                {
+                    center: [37.6576255025344, 127.04056631141917],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_308f2cf718a5419fa83bd5ec344d7019 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b127d53b0f714aaaad13b7064369bc92);
+        
+    
+            var circle_marker_dfe7a1d1a0084a27845b64faeb4be1c4 = L.circleMarker(
+                [37.6479179949756, 127.045419684831],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21, "stroke": true, "weight": 3}
+            ).addTo(map_b127d53b0f714aaaad13b7064369bc92);
+        
+    
+            circle_marker_dfe7a1d1a0084a27845b64faeb4be1c4.bindTooltip(
+                `<div>
+                     초안산근린공원(664905㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_312b1f555eec4323a852d82d620fb7cb = L.circleMarker(
+                [37.6536249957003, 127.02883347222999],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21, "stroke": true, "weight": 3}
+            ).addTo(map_b127d53b0f714aaaad13b7064369bc92);
+        
+    
+            circle_marker_312b1f555eec4323a852d82d620fb7cb.bindTooltip(
+                `<div>
+                     쌍문근린공원(328018㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c368501f1cd848b78d3e03284b18a3c1 = L.circleMarker(
+                [37.689539174010704, 127.04716226196399],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_b127d53b0f714aaaad13b7064369bc92);
+        
+    
+            circle_marker_c368501f1cd848b78d3e03284b18a3c1.bindTooltip(
+                `<div>
+                     서울창포원(51470㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0b5e536078404d6c9f64556765c51765 = L.circleMarker(
+                [37.659608559713995, 127.02971478364901],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_b127d53b0f714aaaad13b7064369bc92);
+        
+    
+            circle_marker_0b5e536078404d6c9f64556765c51765.bindTooltip(
+                `<div>
+                     발바닥공원(7000㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6a9423e35a874e52951fe71d998dd680 = L.circleMarker(
+                [37.6475682555549, 127.05088353713002],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_b127d53b0f714aaaad13b7064369bc92);
+        
+    
+            circle_marker_6a9423e35a874e52951fe71d998dd680.bindTooltip(
+                `<div>
+                     월천근린공원(10712㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ca8af80ccd9141fc961a8a1f78db6691 = L.circleMarker(
+                [37.6474940352509, 127.041384128711],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_b127d53b0f714aaaad13b7064369bc92);
+        
+    
+            circle_marker_ca8af80ccd9141fc961a8a1f78db6691.bindTooltip(
+                `<div>
+                     초안산생태공원(22113㎡)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

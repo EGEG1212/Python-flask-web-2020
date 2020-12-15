@@ -4,6 +4,7 @@ fontawesome-free-5.15.1-web/
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 samples/
+bin/
 roadapikey.txt
 kakaomapkey.txt
 openweatherkey.txt

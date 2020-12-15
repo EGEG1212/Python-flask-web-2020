@@ -1,4 +1,4 @@
-{% extends "09.base.html" %}
+{% extends "base.html" %}
 {% block additional_head %}
     <style>
         /* Make the image fully responsive */
@@ -9,7 +9,7 @@
 {% endblock %}
 {% block weather %} {{ weather|safe() }} {% endblock %}
 {% block subtitle %}
-    <small>주가 예측 - </small><strong>{{code}}</strong>
+    <small>주가 예측 - </small><strong>{{company}}_{{code}}</strong>
 {% endblock %}
 {% block content %}
     <div class="row">
