@@ -1,11 +1,13 @@
-import json
+import os
 import folium
+import json
+import logging
+from logging.config import dictConfig
 from flask import Flask, render_template, session, escape, url_for, flash, redirect, request
 from fbprophet import Prophet
 from datetime import datetime, timedelta
 from my_util.weather import get_weather
 from my_util.forms import RegistrationForm
-import os
 import pandas as pd
 import pandas_datareader as pdr
 import matplotlib as mpl
@@ -17,6 +19,11 @@ mpl.rc('axes', unicode_minus=False)
 app = Flask(__name__)
 app.secret_key = 'qwert12345'
 nasdaq_dict, kospi_dict, kosdaq_dict = {}, {}, {}  # 기업리스트가 자주바뀌지않으니, 전역변수로만들어놓기
+
+with open('./logging.json', 'r') as file:
+    config = json.load(file)
+dictConfig(config)
+app.logger
 
 
 def get_weather_main():
@@ -160,7 +167,8 @@ def park_gu(option):
                        columns=[park_gu.index, park_gu['인당공원면적']],
                        fill_color='PuRd',
                        key_on='feature.id')
-
+    # 터미널에서 확인가능한 개발자확인용; 여기에 넣는거맞나...
+    app.logger.debug(f"get option data: {option}")
     for i in park_new.index:
         folium.CircleMarker([park_new.lat[i], park_new.lng[i]],
                             radius=int(park_new['size'][i]),
@@ -207,7 +215,10 @@ def stock():
         # model에 적용시키려는 작업(눈으로 확인하려면 주피터노트북에서)
         df = pd.DataFrame({'ds': stock_data.index, 'y': stock_data.Close})
         df.reset_index(inplace=True)
-        del df['Date']
+        try:
+            del df['Date']
+        except:
+            pass
 
         model = Prophet(daily_seasonality=True)  # 학습모델prophet에 적용시키고
         model.fit(df)
