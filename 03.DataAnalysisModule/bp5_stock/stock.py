@@ -78,9 +78,13 @@ def stock():
             current_app.logger.error('Date error')  # 야후주식에 데이터가없으면
             flash(f'{company}_{code} 야후주식에 존재하지 않습니다', 'danger')
             return redirect(url_for('stock_bp.stock'))
-
-        model = Prophet(daily_seasonality=True)  # 학습모델prophet에 적용시키고
-        model.fit(df)
+        try:
+            model = Prophet(daily_seasonality=True)  # 학습모델prophet에 적용시키고
+            model.fit(df)
+        except:
+            current_app.logger.error('Value error')  # 야후주식에 데이터가없으면
+            flash(f'{company}_{code} 야후주식에 존재하지 않습니다', 'danger')
+            return redirect(url_for('stock_bp.stock'))
         future = model.make_future_dataframe(
             periods=pred_period)  # 사용자가 입력한 기간까지 예측한다
         forecast = model.predict(future)

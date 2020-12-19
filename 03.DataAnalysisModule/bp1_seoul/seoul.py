@@ -31,6 +31,10 @@ def park():
     park_gu = pd.read_csv('./static/data/park_gu.csv')
     park_gu.set_index('지역', inplace=True)
     if request.method == 'GET':
+        # 공원명가나다순정렬하기위해 3줄추가
+        park_new.sort_values(by=['공원명'], inplace=True)
+        park_new.reset_index(inplace=True)
+        del park_new['index']
         map = folium.Map(location=[37.5502, 126.982], zoom_start=11)
         for i in park_new.index:
             folium.CircleMarker([park_new.lat[i], park_new.lng[i]],
