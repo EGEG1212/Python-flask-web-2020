@@ -5,14 +5,16 @@ from selenium import webdriver
 
 def get_sports_news(filename):
     driver = webdriver.Chrome('./bp6_wordcloud/chromedriver')
-    url = 'https://sports.news.naver.com/index.nhn'
+    url = 'https://sports.news.naver.com/index.nhn'  # ㄱ기본 네이버스포츠뉴스url
     driver.get(url)
     time.sleep(1)
 
-    menus = driver.find_elements_by_class_name('main_menu_item')
+    menus = driver.find_elements_by_class_name(
+        'main_menu_item')  # 메인메뉴아이템중 야구~8개일반까지
     events = []
     for i in range(1, len(menus)-4):
-        event = menus[i].find_element_by_tag_name('a').get_attribute('href')
+        event = menus[i].find_element_by_tag_name(
+            'a').get_attribute('href')  # 메뉴마다 a태그
         events.append(event.split('/')[3])
 
     base_url = 'https://sports.news.naver.com/'

@@ -50,30 +50,36 @@ def text():
             f"{lang}, {f_text}, {request.files['mask']}, {stop_words}")
 
         text = open(file_text, encoding='utf-8').read()
-        stop_words = stop_words.split(' ') if stop_words else []
-        img_file = os.path.join(current_app.root_path, 'static/img/text.png')
-        if lang == 'en':
+        stop_words = stop_words.split(
+            ' ') if stop_words else []  # 제외어 띄어쓰기로 끊어줌
+        img_file = os.path.join(current_app.root_path,
+                                'static/img/text.png')  # 이미지파일 저장할 경로
+        img_file2 = os.path.join(current_app.root_path,
+                                 'static/img/text2.png')  # 이미지파일2 저장할 경로
+        if lang == 'en':  # 영어일경우, wordCloud.pydml engCloud로 처리
             engCloud(text, stop_words, file_mask, img_file)
-        else:
-            hanCloud(text, stop_words, file_mask, img_file)
+        else:  # 한글일경우, hanCloud로 처리
+            hanCloud(text, stop_words, file_mask, img_file, img_file2)
 
         mtime = int(os.stat(img_file).st_mtime)
+        mtime = int(os.stat(img_file2).st_mtime)
         return render_template('wordcloud/text_res.html', menu=menu, weather=get_weather_main(),
                                filename=f_text.filename, mtime=mtime)
 
 
-@word_bp.route('/sports_news')
+@word_bp.route('/sports_news')  # 버튼누르자마자 크롤링실행;;
 def sports_news():
     menu = {'ho': 0, 'da': 1, 'ml': 0, 'se': 0,
             'co': 0, 'cg': 0, 'cr': 0, 'st': 0, 'wc': 1}
+    # 텍스트파일 저장할 경로를 미리 정해준다음
     text_file = os.path.join(current_app.root_path, 'static/data/sports.txt')
-    get_sports_news(text_file)
+    get_sports_news(text_file)  # sport_news.py실행
 
     text = open(text_file, encoding='utf-8').read()
     stop_words = ['오피셜']
     mask_file = os.path.join(current_app.root_path, 'static/img/ball.jpg')
     img_file = os.path.join(current_app.root_path, 'static/img/sports.png')
-    hanCloud(text, stop_words, mask_file, img_file)
+    hanCloud(text, stop_words, mask_file, img_file)  # wordCloud.py실행
     mtime = int(os.stat(img_file).st_mtime)
     return render_template('wordcloud/sports_res.html', menu=menu, weather=get_weather_main(),
                            mtime=mtime)
