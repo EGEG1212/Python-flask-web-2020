@@ -38,7 +38,8 @@ def genie():
     trs = soup.select_one('.list-wrap').find('tbody').select('tr.list')
 
     music_list = []
-    for tr in trs:
+    # 인덱스추가한이유; 순위넘버의 순위정렬하면 스트링으로 되어 1 10 11 12되버려서
+    for index, tr in enumerate(trs):
         num = tr.select_one('.number').get_text()
         rank = f'<strong>{num.split()[0]}</strong>'
         last = num.split()[1]
@@ -52,7 +53,7 @@ def genie():
         artist = tr.select_one('a.artist').string
         album = tr.select_one('a.albumtitle').string
         img = 'https:' + tr.select_one('a.cover').find('img').attrs['src']
-        music_list.append({'rank': rank, 'title': title, 'artist': artist,
+        music_list.append({'index': index, 'rank': rank, 'title': title, 'artist': artist,
                            'album': album, 'img': img})
     return music_list
 
